@@ -1,0 +1,28 @@
+import Layout from '../components/MainLayout.js';
+//import LongMenu from '../components/Menu.js';
+import Link from 'next/link';
+
+function CollectionLink(props) {
+  return (
+    <li>
+      <Link as={`/${props.id}`} href={`/collection?title=${props.title}`}>
+        <a>{props.title}</a>
+      </Link>
+    </li>
+  )
+}
+
+export default function Index() {
+  return (
+    <Layout>
+    <h1>My Blog</h1>
+      <ul>
+        <CollectionLink id="hello-nextjs" title="Hello Next.js" />
+        <CollectionLink id="learn-nextjs" title="Learn Next.js is awesome" />
+        <CollectionLink id="deploy-nextjs" title="Deploy apps with Zeit" />
+      </ul>
+    </Layout>
+  )
+}
+
+
